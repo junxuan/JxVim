@@ -26,6 +26,9 @@
     set shiftwidth=4
     set expandtab
 
+" Fold settings             
+    set foldmethod=syntax
+
 " Search settings
     set wrapscan
     set ignorecase
@@ -74,7 +77,7 @@
     " Toggles
     nmap <silent> ,lcd :lcd %:h<CR>
     nmap <silent> ,md :!mkdir -p %:p:h<CR>
-	nmap <Leader>md :!mkdir -p %:p:h<CR>
+	  nmap <Leader>md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <Leader>j :make<CR>
 
@@ -156,7 +159,8 @@
     source $VIMRUNTIME/mswin.vim
 
 " Indentation
-  autocmd FileType make set noexpandtab
+  autocmd FileType make        set noexpandtab
+  autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2 
 
 " Start Vim maximized
     if has("gui_running")
