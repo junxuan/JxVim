@@ -48,7 +48,7 @@
     set guicursor+=i-ci:ver25-Cursor
     set guicursor+=r-cr:hor20-Cursor
     set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-    set guioptions=ac
+    set guioptions=acr
     set scrolloff=5
     set number
     set cursorline
@@ -144,12 +144,19 @@
 	nmap <silent> <Leader>oj :FSBelow<cr>
 	nmap <silent> <Leader>oJ :FSSplitBelow<cr>
 
-" Delimit Mate
+" Delimit Mate plugin
     let delimitMate_expand_cr = 1
     let delimitMate_expand_space = 1
 
+" Surround plugin
+  let g:surround_45 = "<% \r %>"
+  let g:surround_61 = "<%= \r %>"
+
 "Windows shortcuts
     source $VIMRUNTIME/mswin.vim
+
+" Indentation
+  autocmd FileType make set noexpandtab
 
 " Start Vim maximized
     if has("gui_running")

@@ -1,4 +1,3 @@
-"
 " C++ Filetype Plugin
 " Derek Wyatt (derek <at> [my first name][mylastname] <dot> org)
 " http://derekwyatt.org
