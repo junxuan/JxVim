@@ -77,7 +77,6 @@
     " Toggles
     nmap <silent> ,lcd :lcd %:h<CR>
     nmap <silent> ,md :!mkdir -p %:p:h<CR>
-	  nmap <Leader>md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <Leader>j :make<CR>
 
@@ -152,15 +151,15 @@
     let delimitMate_expand_space = 1
 
 " Surround plugin
-  let g:surround_45 = "<% \r %>"
-  let g:surround_61 = "<%= \r %>"
+    let g:surround_45 = "<% \r %>"
+    let g:surround_61 = "<%= \r %>"
 
 "Windows shortcuts
     source $VIMRUNTIME/mswin.vim
 
 " Indentation
-  autocmd FileType make        set noexpandtab
-  autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2 
+    autocmd FileType make        set noexpandtab
+    autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2 
 
 " Start Vim maximized
     if has("gui_running")
