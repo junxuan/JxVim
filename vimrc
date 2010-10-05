@@ -6,7 +6,7 @@
 " General settings
     set nocompatible
     set vb
-    set backspace=2
+    set backspace=indent,eol,start
     set hidden
     set timeoutlen=500
     set history=100
@@ -28,6 +28,9 @@
 
 " Fold settings             
     set foldmethod=syntax
+    set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+    set foldlevel=1
+    set foldnestmax=2
 
 " Search settings
     set wrapscan
@@ -162,7 +165,7 @@
 
 " Indentation
     autocmd FileType make        set noexpandtab
-    autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2 
+    autocmd FileType ruby,eruby  set ai et ts=2 sw=2 tw=2 
 
 " Start Vim maximized
     if has("gui_running")
