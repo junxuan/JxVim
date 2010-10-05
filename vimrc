@@ -147,6 +147,9 @@
 	nmap <silent> <Leader>oK :FSSplitAbove<cr>
 	nmap <silent> <Leader>oj :FSBelow<cr>
 	nmap <silent> <Leader>oJ :FSSplitBelow<cr>
+    
+" Protodef plugin
+    let g:protodefprotogetter = "~/.vim/bundle/vim-protodef/pullproto.pl"
 
 " Delimit Mate plugin
     let delimitMate_expand_cr = 1
@@ -160,7 +163,10 @@
     nmap <F9> :SCCompile<CR>
     nmap <C-F9> :SCCompileRun<CR>
 
-"Windows shortcuts
+" MRU plugin
+    nmap ,mr :MRU<CR>
+
+" Windows shortcuts
     source $VIMRUNTIME/mswin.vim
 
 " Indentation
@@ -180,4 +186,4 @@
       if exists("+columns")
         set columns=100
       endif
-    endif
+    :endif
