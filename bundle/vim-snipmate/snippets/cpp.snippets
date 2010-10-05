@@ -20,11 +20,11 @@ snippet ns
 	} /* $1 */
 # Class
 snippet cl
-	class ${1:`Filename('$1_t', 'name')`} {
+	class ${1:`Filename('$1', 'name')`} {
 	public:
 
 	private:
-		${3:/* data */}
+		${2:/* data */}
 	};
 snippet fori
 	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
