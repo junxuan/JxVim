@@ -172,10 +172,10 @@
     let twitvim_count=30
     let twitvim_old_retweet=1
 
-    nmap ,tf :FriendsTwitter
-    nmap ,tm :MentionsTwitter
-    nmap ,td :DMTwitter
-    nmap ,ts :DMSentTwitter
+    nmap ,tf :FriendsTwitter<CR>
+    nmap ,tm :MentionsTwitter<CR>
+    nmap ,td :DMTwitter<CR>
+    nmap ,ts :DMSentTwitter<CR>
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
