@@ -165,6 +165,10 @@
 
 " MRU plugin
     nmap ,mr :MRU<CR>
+ 
+" Twitvim plugin
+    let twitvim_browser_cmd='firefox'
+    let twitvim_login="JxMKor:junrox" 
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
