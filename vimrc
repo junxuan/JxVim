@@ -176,6 +176,7 @@
     nmap ,tm :MentionsTwitter<CR>
     nmap ,td :DMTwitter<CR>
     nmap ,ts :DMSentTwitter<CR>
+    nmap ,tsd :SendDMTwitter
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
