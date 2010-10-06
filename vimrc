@@ -169,6 +169,13 @@
 " Twitvim plugin
     let twitvim_browser_cmd='firefox'
     let twitvim_login="JxMKor:junrox" 
+    let twitvim_count=30
+    let twitvim_old_retweet=1
+
+    nmap ,tf :FriendsTwitter
+    nmap ,tm :MentionsTwitter
+    nmap ,td :DMTwitter
+    nmap ,ts :DMSentTwitter
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
