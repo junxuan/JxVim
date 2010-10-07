@@ -167,7 +167,7 @@
     nmap ,mr :MRU<CR>
  
 " Twitvim plugin
-    let twitvim_browser_cmd='firefox'
+    let twitvim_browser_cmd='google-chrome'
     let twitvim_login="JxMKor:junrox" 
     let twitvim_count=30
     let twitvim_old_retweet=1
@@ -177,6 +177,7 @@
     nmap ,td :DMTwitter<CR>
     nmap ,ts :DMSentTwitter<CR>
     nmap ,tsd :SendDMTwitter
+    nmap ,tw :PosttoTwitter<CR>
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
@@ -199,3 +200,12 @@
         set columns=100
       endif
     :endif
+
+" VIM Context inspector
+    nmap <C-S-P> :call <SID>SynStack()<CR>
+    function! <SID>SynStack()
+        if !exists("*synstack")
+            return
+        endif
+        echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    endfun
