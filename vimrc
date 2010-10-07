@@ -38,6 +38,10 @@
     set smartcase
     set hlsearch
     set incsearch
+ 
+" Spell check settings
+    set spelllang=en_us
+    set spell
 
 " Status bar
     set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
@@ -76,11 +80,18 @@
     autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
     autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
+" Bubble movement
+    nmap <C-up> [e
+    nmap <C-down> ]e
+    vmap <C-up> [egv
+    vmap <C-down> ]egv
+
 " Mapping settings
     " Toggles
     nmap <silent> ,lcd :lcd %:h<CR>
     nmap <silent> ,md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
+    nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
 
     " Window movements
     noremap <silent> ,h :wincmd h<CR>
@@ -112,8 +123,8 @@
     nmap <C-k> lbi:<Esc>E
 
     "Session hotkeys
-    nmap <leader>ssa :wa<CR>:mksession! ~/.vim/sessions/
-    nmap <leader>so :wa<CR>:so ~/.vim/sessions
+    nmap <leader>ssa :wa<CR> :mksession! ~/.vim_session<CR>
+    nmap <leader>so :wa<CR>:so ~/.vim_session<CR>
 
 " Super Tab plugin
     let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
