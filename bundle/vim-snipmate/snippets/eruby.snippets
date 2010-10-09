@@ -30,4 +30,8 @@ snippet unlesse
 	<% end -%>
 snippet yield
 	<%= yield :${1:partial} %>
-
+snippet forin
+	<% for ${1:object} in @${2:var} do -%>
+		${3}
+	<% end -%>
+	
