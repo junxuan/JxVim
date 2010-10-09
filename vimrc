@@ -112,7 +112,6 @@
 
     " shortcuts
     nmap <silent> ,ev :e $MYVIMRC<CR>
-    nmap <silent> ,sv :so $MYVIMRC<CR>
     nnoremap ; :
     imap jj <ESC>
     let mapleader=","
@@ -171,7 +170,6 @@
     let g:surround_61 = "<%= \r %>"
 
 " Single Compile plugin
-    nmap <F9> :SCCompile<CR>
     nmap <C-F9> :SCCompileRun<CR>
 
 " MRU plugin
