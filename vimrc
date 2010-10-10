@@ -44,7 +44,8 @@
     set spell
 
 " Status bar
-    set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
+    " set stl=%f\ %m\%r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
+    set statusline=--:--\ %t\ %m\%r\ \ \ %p%%\ (%l,%c)\ \ Git:%{GitBranchInfoString()}\ \ Buffer:%n\ \ %y
     set laststatus=2 
     set showcmd
     set showmode
@@ -132,6 +133,7 @@
 " Command T plugin
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
+    nmap <silent> <C-S-O> :CommandT<CR>
 
 " NERD Tree plugin
     nmap <silent> <F9> :NERDTreeToggle<CR>
@@ -187,6 +189,18 @@
     nmap ,ts :DMSentTwitter<CR>
     nmap ,tsd :SendDMTwitter
     nmap ,tw :PosttoTwitter<CR>
+
+" Rails plugin
+    nmap ,rc :Rcontoller<Space>
+    nmap ,rm :Rmodel<Space>
+    nmap ,rv :Rview<Space>
+    nmap ,rs :Rscript<Space>
+    nmap ,rS :Rserver!<CR>
+    nmap ,rr :Rake<Space>
+
+" Git Status plugin
+    let g:git_branch_status_nogit="none"     
+    let g:git_branch_status_head_current=1
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
