@@ -194,6 +194,10 @@
     nmap ,rS :Rserver!<CR>
     nmap ,rr :Rake<Space>
 
+" RSense plugin
+    let g:rsenseHome = "/opt/rsense"
+    let g:rsenseUseOmniFunc = 1
+
 " Git Status plugin
     let g:git_branch_status_nogit="none"     
     let g:git_branch_status_head_current=1
