@@ -38,10 +38,6 @@
     set smartcase
     set hlsearch
     set incsearch
- 
-" Spell check settings
-    set spelllang=en_us
-    set spell
 
 " Status bar
     " set stl=%f\ %m\%r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
