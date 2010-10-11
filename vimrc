@@ -145,6 +145,9 @@
 	let Tlist_WinWidth=23
 	let Tlist_Auto_Open=1
 
+" GCCSense plugin
+    let g:gccsenseUseOmniFunc = 1
+
 " FSwitch plugin
 	nmap <silent> <Leader>of :FSHere<cr>
 	nmap <silent> <Leader>ol :FSRight<cr>
