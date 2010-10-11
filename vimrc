@@ -41,7 +41,7 @@
 
 " Status bar
     " set stl=%f\ %m\%r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
-    set statusline=--:--\ %t\ %m\%r\ \ \ %p%%\ (%l,%c)\ \ Git:%{GitBranchInfoString()}\ \ Buffer:%n\ \ %y
+    set statusline=--:--\ %t\ %m\%r\ \ \ %p%%\ (%l,%c)\ \ %{fugitive#statusline()}\ \ Buffer:%n\ \ %y
     set laststatus=2 
     set showcmd
     set showmode
@@ -200,10 +200,6 @@
 " RSense plugin
     let g:rsenseHome = "/opt/rsense"
     let g:rsenseUseOmniFunc = 1
-
-" Git Status plugin
-    let g:git_branch_status_nogit="none"     
-    let g:git_branch_status_head_current=1
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
