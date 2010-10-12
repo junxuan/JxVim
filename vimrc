@@ -40,8 +40,17 @@
     set incsearch
 
 " Status bar
-    " set stl=%f\ %m\%r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ Filetype:%Y
-    set statusline=--:--\ %t\ %m\%r\ \ \ %p%%\ (%l,%c)\ \ %{fugitive#statusline()}\ \ Buffer:%n\ \ %y
+    set statusline=--:--                              " For coolness
+    set statusline+=\ %t                              " Current filename
+    set statusline+=\ %((%M)%)                        " Modified flag
+    set statusline+=\ \ \ %p%%                        " File scroll percentage
+    set statusline+=\ (%l,%c)                         " Current coordinates
+    set statusline+=\ \ %{fugitive#statusline()}      " Git status
+    set statusline+=\ \ Buffer:%n                     " Buffer number
+    set statusline+=%=                                " Seperator 
+    set statusline+=\ \ %y                            " Filetype
+    set statusline+=%r\ \                             " Readonly flag
+    
     set laststatus=2 
     set showcmd
     set showmode
@@ -49,12 +58,6 @@
 " GUI settings
     set lazyredraw
     set mousehide
-    set guicursor=n-v-c:block-Cursor-blinkon0
-    set guicursor+=ve:ver35-Cursor
-    set guicursor+=o:hor50-Cursor
-    set guicursor+=i-ci:ver25-Cursor
-    set guicursor+=r-cr:hor20-Cursor
-    set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
     set guioptions=acr
     set scrolloff=5
     set number
@@ -65,17 +68,21 @@
     set guifont=Espresso\ Mono\ Bold\ 10
 
 " Omnicomplete settings
-    "highlight Pmenu guibg=#CECECE guifg=#444444 gui=bold
+    " Menu settings
     set completeopt=longest,menuone
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-    set tags+=~/.vim/tags/cpp
 
-    " Ruby Specific
-    autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-    autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-    autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-    autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+    " Super Tab plugin
+    let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+    let g:SuperTabCrMapping=0
+
+    " GCCSense plugin
+    let g:gccsenseUseOmniFunc = 1
+
+    " RSense plugin
+    let g:rsenseHome = "/opt/rsense"
+    let g:rsenseUseOmniFunc = 1
 
 " Bubble movement
     nmap <C-up> [e
@@ -90,7 +97,15 @@
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
 
+    " shortcuts
+    nmap <silent> ,ev :e $MYVIMRC<CR>
+    nnoremap ; :
+    imap jj <ESC>
+    let mapleader=","
+
     " Window movements
+    noremap <silent> ,nw :wincmd n<CR>
+    noremap <silent> ,nv :vnew<CR>
     noremap <silent> ,h :wincmd h<CR>
     noremap <silent> ,j :wincmd j<CR>
     noremap <silent> ,k :wincmd k<CR>
@@ -100,18 +115,13 @@
     noremap <silent> ,ck :wincmd k<CR>:close<CR>
     noremap <silent> ,ch :wincmd h<CR>:close<CR>
     noremap <silent> ,cl :wincmd l<CR>:close<CR>
-    noremap <silent> ,cc :close<CR>
-    noremap <silent> ,cw :cclose<CR>
+    noremap <silent> ,cw :close<CR>
+    noremap <silent> ,co :copen<CR>
+    noremap <silent> ,cq :cclose<CR>
     noremap <silent> ,ml <C-W>L
     noremap <silent> ,mk <C-w>K
     noremap <silent> ,mh <C-w>H
     noremap <silent> ,mj <C-w>J
-
-    " shortcuts
-    nmap <silent> ,ev :e $MYVIMRC<CR>
-    nnoremap ; :
-    imap jj <ESC>
-    let mapleader=","
 
     " Ruby hotkeys
     imap <C-l> <Space>=><Space>
@@ -122,15 +132,14 @@
     nmap <leader>ssa :wa<CR> :mksession! ~/.vim_session<CR>
     nmap <leader>so :wa<CR>:so ~/.vim_session<CR>
 
-" Super Tab plugin
-    let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
-    let g:SuperTabCrMapping=0
-
 " Command T plugin
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
     nmap <silent> <C-S-O> :CommandT<CR>
 
+" MRU plugin
+    nmap ,mr :MRU<CR>
+ 
 " NERD Tree plugin
     nmap <silent> <F9> :NERDTreeToggle<CR>
     let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
@@ -144,9 +153,6 @@
 	nnoremap <silent> <F8> :TlistToggle<CR>
 	let Tlist_WinWidth=23
 	let Tlist_Auto_Open=1
-
-" GCCSense plugin
-    let g:gccsenseUseOmniFunc = 1
 
 " FSwitch plugin
 	nmap <silent> <Leader>of :FSHere<cr>
@@ -173,9 +179,6 @@
 " Single Compile plugin
     nmap <C-F9> :SCCompileRun<CR>
 
-" MRU plugin
-    nmap ,mr :MRU<CR>
- 
 " Twitvim plugin
     let twitvim_browser_cmd='google-chrome'
     let twitvim_login="JxMKor:junrox" 
@@ -196,10 +199,6 @@
     nmap ,rs :Rscript<Space>
     nmap ,rS :Rserver!<CR>
     nmap ,rr :Rake<Space>
-
-" RSense plugin
-    let g:rsenseHome = "/opt/rsense"
-    let g:rsenseUseOmniFunc = 1
 
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
