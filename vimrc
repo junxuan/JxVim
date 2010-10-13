@@ -40,7 +40,8 @@
     set incsearch
 
 " Status bar
-    set statusline=--:--                              " For coolness
+    set statusline=%<                                 " Set truncate location
+    set statusline+=--:--                             " For coolness
     set statusline+=\ %t                              " Current filename
     set statusline+=\ %((%M)%)                        " Modified flag
     set statusline+=\ \ \ %p%%                        " File scroll percentage
@@ -133,6 +134,7 @@
     nmap <leader>so :wa<CR>:so ~/.vim_session<CR>
 
 " Command T plugin
+    let g:CommandTMaxFiles=1000
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
     nmap <silent> <C-S-O> :CommandT<CR>
@@ -178,6 +180,9 @@
 
 " Single Compile plugin
     nmap <C-F9> :SCCompileRun<CR>
+
+" Zen Coding plugin
+    let g:user_zen_expandabbr_key = "<C-e>"
 
 " Twitvim plugin
     let twitvim_browser_cmd='google-chrome'
