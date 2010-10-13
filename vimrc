@@ -5,7 +5,8 @@
 
 " General settings
     set nocompatible
-    set vb
+    set novb
+    set noeb
     set backspace=indent,eol,start
     set hidden
     set timeoutlen=500
