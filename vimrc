@@ -14,6 +14,9 @@
     set virtualedit=all
     set wildmenu
 
+    set noswapfile
+    set nobackup
+
 " File type settings
     filetype on
     filetype plugin on
@@ -140,8 +143,9 @@
     let g:CommandTMaxDepth=4
     nmap <silent> <C-S-O> :CommandT<CR>
 
-" MRU plugin
-    nmap ,mr :MRU<CR>
+" Lusty Explorer plugin
+    nmap ,be :LustyBufferExplorer<CR>
+    nmap ,bg :LustyBuffeGrep<CR>
  
 " NERD Tree plugin
     nmap <silent> <F9> :NERDTreeToggle<CR>
