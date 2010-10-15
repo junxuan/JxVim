@@ -82,13 +82,6 @@
     let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
     let g:SuperTabCrMapping=0
 
-    " GCCSense plugin
-    let g:gccsenseUseOmniFunc = 1
-
-    " RSense plugin
-    let g:rsenseHome = "/opt/rsense"
-    let g:rsenseUseOmniFunc = 1
-
 " Bubble movement
     nmap <C-up> [e
     nmap <C-down> ]e
@@ -102,7 +95,7 @@
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
 
-    " shortcuts
+    " Shortcuts
     nmap <silent> ,ev :e $MYVIMRC<CR>
     nnoremap ; :
     imap jj <ESC>
@@ -115,7 +108,6 @@
     noremap <silent> ,j :wincmd j<CR>
     noremap <silent> ,k :wincmd k<CR>
     noremap <silent> ,l :wincmd l<CR>
-    noremap <silent> ,sb :wincmd p<CR>
     noremap <silent> ,cj :wincmd j<CR>:close<CR>
     noremap <silent> ,ck :wincmd k<CR>:close<CR>
     noremap <silent> ,ch :wincmd h<CR>:close<CR>
@@ -137,15 +129,17 @@
     nmap <leader>ssa :wa<CR> :mksession! ~/.vim_session<CR>
     nmap <leader>so :wa<CR>:so ~/.vim_session<CR>
 
+" File plugins
 " Command T plugin
     let g:CommandTMaxFiles=1000
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
     nmap <silent> <C-S-O> :CommandT<CR>
+    let g:CommandTCancelMap='<C-x>'
 
 " Lusty Explorer plugin
     nmap ,be :LustyBufferExplorer<CR>
-    nmap ,bg :LustyBuffeGrep<CR>
+    nmap ,bg :LustyBufferGrep<CR>
  
 " NERD Tree plugin
     nmap <silent> <F9> :NERDTreeToggle<CR>
@@ -161,7 +155,21 @@
 	let Tlist_WinWidth=23
 	let Tlist_Auto_Open=1
 
-" FSwitch plugin
+" Ruby plugins
+    " Rails plugin
+    nmap ,rc :Rcontoller<Space>
+    nmap ,rm :Rmodel<Space>
+    nmap ,rv :Rview<Space>
+    nmap ,rs :Rscript<Space>
+    nmap ,rS :Rserver!<CR>
+    nmap ,rr :Rake<Space>
+
+    " :RSense plugin
+    let g:rsenseHome = "/opt/rsense"
+    let g:rsenseUseOmniFunc = 1
+
+" C++ plugins
+    " FSwitch plugin
 	nmap <silent> <Leader>of :FSHere<cr>
 	nmap <silent> <Leader>ol :FSRight<cr>
 	nmap <silent> <Leader>oL :FSSplitRight<cr>
@@ -172,24 +180,29 @@
 	nmap <silent> <Leader>oj :FSBelow<cr>
 	nmap <silent> <Leader>oJ :FSSplitBelow<cr>
     
-" Protodef plugin
+    " Protodef plugin
     let g:protodefprotogetter = "~/.vim/bundle/vim-protodef/pullproto.pl"
 
-" Delimit Mate plugin
+    " Single Compile plugin
+    nmap <C-F9> :SCCompileRun<CR>
+
+    " Delimit Mate plugin
     let delimitMate_expand_cr = 1
     let delimitMate_expand_space = 1
 
-" Surround plugin
+    " GCCSense plugin
+    let g:gccsenseUseOmniFunc = 1
+
+" HTML plugins
+    " Zen Coding plugin
+    let g:user_zen_expandabbr_key = "<C-e>"
+
+" Utility plugins
+    " Surround plugin
     let g:surround_45 = "<% \r %>"
     let g:surround_61 = "<%= \r %>"
 
-" Single Compile plugin
-    nmap <C-F9> :SCCompileRun<CR>
-
-" Zen Coding plugin
-    let g:user_zen_expandabbr_key = "<C-e>"
-
-" Twitvim plugin
+    " Twitvim plugin
     let twitvim_browser_cmd='google-chrome'
     let twitvim_login="JxMKor:junrox" 
     let twitvim_count=30
@@ -202,20 +215,12 @@
     nmap ,tsd :SendDMTwitter
     nmap ,tw :PosttoTwitter<CR>
 
-" Rails plugin
-    nmap ,rc :Rcontoller<Space>
-    nmap ,rm :Rmodel<Space>
-    nmap ,rv :Rview<Space>
-    nmap ,rs :Rscript<Space>
-    nmap ,rS :Rserver!<CR>
-    nmap ,rr :Rake<Space>
-
-" Windows shortcuts
-    source $VIMRUNTIME/mswin.vim
-
 " Indentation
     autocmd FileType make        set noexpandtab
     autocmd FileType ruby,eruby  set ai et ts=2 sw=2 tw=2 
+    
+" Windows shortcuts
+    source $VIMRUNTIME/mswin.vim
 
 " Start Vim maximized
     if has("gui_running")
