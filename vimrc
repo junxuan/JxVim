@@ -13,7 +13,9 @@
     set history=100
     set virtualedit=all
     set wildmenu
+    set timeoutlen=500
 
+    set autowrite
     set noswapfile
     set nobackup
 
