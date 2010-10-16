@@ -180,18 +180,17 @@
     set tags+=~/.vim/bundle/omnicpp/tags/cpp
     let OmniCpp_NamespaceSearch=1 
     let OmniCpp_ShowPrototypeInAbbr=1
-    au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
     " FSwitch plugin
-	nmap <silent> <Leader>of :FSHere<cr>
-	nmap <silent> <Leader>ol :FSRight<cr>
-	nmap <silent> <Leader>oL :FSSplitRight<cr>
-	nmap <silent> <Leader>oh :FSLeft<cr>
-	nmap <silent> <Leader>oH :FSSplitLeft<cr>
-	nmap <silent> <Leader>ok :FSAbove<cr>
-	nmap <silent> <Leader>oK :FSSplitAbove<cr>
-	nmap <silent> <Leader>oj :FSBelow<cr>
-	nmap <silent> <Leader>oJ :FSSplitBelow<cr>
+    nmap <silent> <Leader>of :FSHere<cr>
+    nmap <silent> <Leader>ol :FSRight<cr>
+    nmap <silent> <Leader>oL :FSSplitRight<cr>
+    nmap <silent> <Leader>oh :FSLeft<cr>
+    nmap <silent> <Leader>oH :FSSplitLeft<cr>
+    nmap <silent> <Leader>ok :FSAbove<cr>
+    nmap <silent> <Leader>oK :FSSplitAbove<cr>
+    nmap <silent> <Leader>oj :FSBelow<cr>
+    nmap <silent> <Leader>oJ :FSSplitBelow<cr>
     
     " Protodef plugin
     let g:protodefprotogetter = "~/.vim/bundle/vim-protodef/pullproto.pl"
