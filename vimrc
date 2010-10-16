@@ -4,6 +4,7 @@
     call pathogen#helptags()
 
 " General settings
+    let mapleader=","
     set nocompatible
     set novb
     set noeb
@@ -80,6 +81,11 @@
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
     " Super Tab plugin
     let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
     let g:SuperTabCrMapping=0
@@ -101,7 +107,6 @@
     nmap <silent> ,ev :e $MYVIMRC<CR>
     nnoremap ; :
     imap jj <ESC>
-    let mapleader=","
 
     " Window movements
     noremap <silent> ,nw :wincmd n<CR>
@@ -122,10 +127,6 @@
     noremap <silent> ,mh <C-w>H
     noremap <silent> ,mj <C-w>J
 
-    " Ruby hotkeys
-    imap <C-l> <Space>=><Space>
-    imap <C-k> <C-o>b:<Esc>Ea
-    nmap <C-k> lbi:<Esc>E
 
     "Session hotkeys
     nmap <leader>ssa :wa<CR> :mksession! ~/.vim_session<CR>
@@ -136,26 +137,25 @@
     let g:CommandTMaxFiles=1000
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
-    nmap <silent> <C-S-O> :CommandT<CR>
     let g:CommandTCancelMap='<C-x>'
+
+    nmap <silent> <C-S-O> :CommandT<CR>
 
 " Lusty Explorer plugin
     nmap ,be :LustyBufferExplorer<CR>
     nmap ,bg :LustyBufferGrep<CR>
  
 " NERD Tree plugin
-    nmap <silent> <F9> :NERDTreeToggle<CR>
-    let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-            \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-            \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-            \ '\.intermediate\.manifest$', '^mt.dep$' ]
     let NERDTreeQuitOnOpen=1
     let NERDTreeWinPos="right"
 
+    nmap <silent> <F9> :NERDTreeToggle<CR>
+
 " Tag list plugin
-	nnoremap <silent> <F8> :TlistToggle<CR>
 	let Tlist_WinWidth=23
 	let Tlist_Auto_Open=1
+
+	nnoremap <silent> <F8> :TlistToggle<CR>
 
 " Ruby plugins
     " Rails plugin
@@ -165,6 +165,11 @@
     nmap ,rs :Rscript<Space>
     nmap ,rS :Rserver!<CR>
     nmap ,rr :Rake<Space>
+
+    " Ruby hotkeys
+    imap <C-l> <Space>=><Space>
+    imap <C-k> <C-o>b:<Esc>Ea
+    nmap <C-k> lbi:<Esc>E
 
     " :RSense plugin
     let g:rsenseHome = "/opt/rsense"
@@ -192,9 +197,6 @@
     let delimitMate_expand_cr = 1
     let delimitMate_expand_space = 1
 
-    " GCCSense plugin
-    let g:gccsenseUseOmniFunc = 1
-
 " HTML plugins
     " Zen Coding plugin
     let g:user_zen_expandabbr_key = "<C-e>"
@@ -220,6 +222,7 @@
 " Indentation
     autocmd FileType make        set noexpandtab
     autocmd FileType ruby,eruby  set ai et ts=2 sw=2 tw=2 
+    autocmd FileType css         set ai et ts=2 sw=2 tw=2
     
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
