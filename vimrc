@@ -223,10 +223,13 @@
     nmap ,tsd :SendDMTwitter
     nmap ,tw :PosttoTwitter<CR>
 
+" Align plugins
+	vmap ,a :Align 
+
 " Indentation
-    autocmd FileType make        set noet
-    autocmd FileType ruby,eruby  set ai et ts=2 sw=2 tw=2 
-    autocmd FileType css         set ai et ts=2 sw=2 tw=2
+    autocmd FileType make       set noet
+    autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2
+    autocmd FileType css        set ai et ts=2 sw=2 tw=2
     
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
