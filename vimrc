@@ -10,11 +10,10 @@
     set noeb
     set backspace=indent,eol,start
     set hidden
-    set timeoutlen=500
+    set timeoutlen=400
     set history=100
     set virtualedit=all
     set wildmenu
-    set timeoutlen=500
 
     set autowrite
     set noswapfile
@@ -225,7 +224,7 @@
     nmap ,tw :PosttoTwitter<CR>
 
 " Indentation
-    autocmd FileType make        set noexpandtab
+    autocmd FileType make        set noet
     autocmd FileType ruby,eruby  set ai et ts=2 sw=2 tw=2 
     autocmd FileType css         set ai et ts=2 sw=2 tw=2
     
