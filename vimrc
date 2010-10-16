@@ -77,7 +77,7 @@
 
 " Omnicomplete settings
     " Menu settings
-    set completeopt=longest,menuone
+    set completeopt=longest,menuone,preview
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
@@ -176,6 +176,12 @@
     let g:rsenseUseOmniFunc = 1
 
 " C++ plugins
+    " OmniCpp plugin
+    set tags+=~/.vim/bundle/omnicpp/tags/cpp
+    let OmniCpp_NamespaceSearch=1 
+    let OmniCpp_ShowPrototypeInAbbr=1
+    au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
     " FSwitch plugin
 	nmap <silent> <Leader>of :FSHere<cr>
 	nmap <silent> <Leader>ol :FSRight<cr>
