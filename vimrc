@@ -46,17 +46,17 @@
     set incsearch
 
 " Status bar
-    set statusline=%<                                 " Set truncate location
-    set statusline+=--:--                             " For coolness
-    set statusline+=\ %t                              " Current filename
-    set statusline+=\ %((%M)%)                        " Modified flag
-    set statusline+=\ \ \ %p%%                        " File scroll percentage
-    set statusline+=\ (%l,%c)                         " Current coordinates
-    set statusline+=\ \ %{fugitive#statusline()}      " Git status
-    set statusline+=\ \ Buffer:%n                     " Buffer number
-    set statusline+=%=                                " Seperator 
-    set statusline+=\ \ %y                            " Filetype
-    set statusline+=%r\ \                             " Readonly flag
+    set statusline=%<                            " Set truncate location
+    set statusline+=--:--                        " For coolness
+    set statusline+=\ %t                         " Current filename
+    set statusline+=\ %((%M)%)                   " Modified flag
+    set statusline+=\ \ \ %p%%                   " File scroll percentage
+    set statusline+=\ (%l,%c)                    " Current coordinates
+    set statusline+=\ \ %{fugitive#statusline()} " Git status
+    set statusline+=\ \ Buffer:%n                " Buffer number
+    set statusline+=%=                           " Seperator
+    set statusline+=\ \ %y                       " Filetype
+    set statusline+=%r\ \                        " Readonly flag
     
     set laststatus=2 
     set showcmd
@@ -81,9 +81,9 @@
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
 
     " Super Tab plugin
     let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
