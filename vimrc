@@ -170,9 +170,16 @@
     imap <C-k> <C-o>b:<Esc>Ea
     nmap <C-k> lbi:<Esc>E
 
-    " :RSense plugin
+    " RSense plugin
     let g:rsenseHome = "/opt/rsense"
     let g:rsenseUseOmniFunc = 1
+
+    " RFactor plugin
+    nnoremap <leader>rap :call AddParameter()<CR>
+    vnoremap <leader>rlv :call RenameLocalVariable()<CR>
+    nnoremap <leader>rlv viw:call RenameVariableProxy()<CR>
+    vnoremap <leader>riv :call RenameInstanceVariable()<CR>
+    vnoremap <leader>rem :call ExtractMethod()<CR>
 
 " C++ plugins
     " OmniCpp plugin
