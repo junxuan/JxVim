@@ -76,9 +76,10 @@
 
 " Omnicomplete settings
     " Menu settings
-    set completeopt=longest,menuone,preview
+    set completeopt=longest,menuone
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
@@ -133,7 +134,7 @@
 
 " File plugins
 " Command T plugin
-    let g:CommandTMaxFiles=1000
+    let g:CommandTMaxFiles=1200
     let g:CommandTMaxHeight=6
     let g:CommandTMaxDepth=4
     let g:CommandTCancelMap='<C-x>'
@@ -186,6 +187,8 @@
     set tags+=~/.vim/bundle/omnicpp/tags/cpp
     let OmniCpp_NamespaceSearch=1 
     let OmniCpp_ShowPrototypeInAbbr=1
+
+    map ,gt :silent !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
     " FSwitch plugin
     nmap <silent> <Leader>of :FSHere<cr>
