@@ -14,10 +14,16 @@
     set history=100
     set virtualedit=all
     set wildmenu
+    set wildmode=list:longest,list:full
+    set wildignore+=*.o,*.obj,.git,*.rbc
 
     set autowrite
     set noswapfile
     set nobackup
+
+" Window title settings
+    set title
+    set titlestring=VIM
 
 " File type settings
     filetype on
@@ -153,13 +159,12 @@
 
 " Tag list plugin
 	let Tlist_WinWidth=23
-	let Tlist_Auto_Open=1
 
 	nnoremap <silent> <F8> :TlistToggle<CR>
 
 " Ruby plugins
     " Rails plugin
-    nmap ,rc :Rcontoller<Space>
+    nmap ,rc :Rcontroller<Space>
     nmap ,rm :Rmodel<Space>
     nmap ,rv :Rview<Space>
     nmap ,rs :Rscript<Space>
