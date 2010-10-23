@@ -14,6 +14,7 @@
     set history=100
     set virtualedit=all
     set wildmenu
+    set nowrap
 
     set autowrite
     set noswapfile
@@ -233,7 +234,7 @@
     nmap ,tsd :SendDMTwitter
     nmap ,tw :PosttoTwitter<CR>
 
-" Align plugins
+" Align plugin
 	vmap ,a :Align 
 
 " Indentation
