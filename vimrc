@@ -15,6 +15,8 @@
     set virtualedit=all
     set wildmenu
     set nowrap
+    set title
+    set titlestring=VIM
 
     set autowrite
     set noswapfile
@@ -49,15 +51,33 @@
 " Status bar
     set statusline=%<                            " Set truncate location
     set statusline+=--:--                        " For coolness
+    set statusline+=\ \|%n\|
     set statusline+=\ %t                         " Current filename
     set statusline+=\ %((%M)%)                   " Modified flag
     set statusline+=\ \ \ %p%%                   " File scroll percentage
     set statusline+=\ (%l,%c)                    " Current coordinates
     set statusline+=\ \ %{fugitive#statusline()} " Git status
-    set statusline+=\ \ Buffer:%n                " Buffer number
     set statusline+=%=                           " Seperator
-    set statusline+=\ \ %y                       " Filetype
+    set statusline+=\ \ %{Fileinfo()}                       " Filetype
     set statusline+=%r\ \                        " Readonly flag
+
+    function! Fileinfo()
+        let ft = &filetype 
+        let indent = &shiftwidth
+		let type = "null"
+		if (&expandtab == 0)
+			let type = "hard"
+		else
+			let type = "soft"
+		end
+        let finfo = "[".ft." | ".indent." | ".type."]"
+
+        if (ft == "")
+            return ""
+        else
+            return finfo
+        end
+    endfunction
     
     set laststatus=2 
     set showcmd
@@ -86,9 +106,10 @@
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType java       set omnifunc=javacomplete#Complete
 
     " Super Tab plugin
-    let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+    let g:SuperTabDefaultCompletionType = 'context'
     let g:SuperTabCrMapping=0
 
 " Bubble movement
