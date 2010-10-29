@@ -87,8 +87,8 @@
     set lazyredraw
     set mousehide
     set guioptions=acr
-    set scrolloff=5
-    set number
+    set scrolloff=15
+    set relativenumber
     set cursorline
     
 " Colors and fonts
@@ -120,10 +120,11 @@
 
 " Mapping settings
     " Toggles
-    nmap <silent> ,lcd :lcd %:h<CR>
+    nmap <silent> ,cd :cd %:h<CR>
     nmap <silent> ,md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
+    nmap  ,e :e <C-R>=expand("%:p:h") . "/"<CR>
 
     " Shortcuts
     nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -155,6 +156,8 @@
     nmap <leader>so :wa<CR>:so ~/.vim_session<CR>
 
 " File plugins
+" MRU plugin
+    nmap ,mr :MRU<CR>
 " Command T plugin
     let g:CommandTMaxFiles=1200
     let g:CommandTMaxHeight=6
@@ -162,6 +165,7 @@
     let g:CommandTCancelMap='<C-x>'
 
     nmap <silent> <C-S-O> :CommandT<CR>
+    nmap <silent> ,cf :CommandTFlush<CR>
 
 " Lusty Explorer plugin
     nmap ,be :LustyBufferExplorer<CR>
@@ -271,15 +275,7 @@
       " GUI is running or is about to start.
       " Maximize gvim window.
       set lines=999 columns=999
-    else
-      " This is console Vim.
-      if exists("+lines")
-        set lines=50
-      endif
-      if exists("+columns")
-        set columns=100
-      endif
-    :endif
+    endif
 
 " VIM Context inspector
     nmap <C-S-P> :call <SID>SynStack()<CR>
