@@ -265,7 +265,7 @@
     nmap ,tsd :SendDMTwitter
     nmap ,tw :PosttoTwitter<CR>
 
-" Align plugin
+    " Align plugin
 	vmap ,a :Align 
 
 " Indentation
