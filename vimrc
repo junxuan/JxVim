@@ -87,7 +87,7 @@
     set lazyredraw
     set mousehide
     set guioptions=acr
-    set scrolloff=15
+    set scrolloff=8
     set number
     set cursorline
     
@@ -102,12 +102,6 @@
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
-    autocmd FileType php        set tags=~/.vim/tags/wordpress
-    autocmd FileType java       set omnifunc=javacomplete#Complete
 
     " Super Tab plugin
     let g:SuperTabDefaultCompletionType = 'context'
@@ -267,12 +261,26 @@
 
     " Align plugin
 	vmap ,a :Align 
+    
+" Autocommands
+if has("autocmd")
+    " Change to current file directory
+    autocmd BufEnter * lcd %:p:h
 
-" Indentation
+    " Omni Completion
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType php        set tags=~/.vim/tags/wordpress
+    autocmd FileType java       set omnifunc=javacomplete#Complete
+
+    " Indentation
     autocmd FileType make       set noet
     autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2
     autocmd FileType css        set ai et ts=2 sw=2 tw=2
-    
+end
+
 " Windows shortcuts
     source $VIMRUNTIME/mswin.vim
 
