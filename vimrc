@@ -88,7 +88,7 @@
     set mousehide
     set guioptions=acr
     set scrolloff=15
-    set relativenumber
+    set number
     set cursorline
     
 " Colors and fonts
@@ -106,6 +106,7 @@
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType php        set tags=~/.vim/tags/wordpress
     autocmd FileType java       set omnifunc=javacomplete#Complete
 
     " Super Tab plugin
@@ -158,28 +159,33 @@
 " File plugins
 " MRU plugin
     nmap ,mr :MRU<CR>
+
 " Command T plugin
-    let g:CommandTMaxFiles=1200
+    let g:CommandTMaxFiles=2200
     let g:CommandTMaxHeight=6
-    let g:CommandTMaxDepth=4
+    let g:CommandTMaxDepth=6
     let g:CommandTCancelMap='<C-x>'
 
     nmap <silent> <C-S-O> :CommandT<CR>
     nmap <silent> ,cf :CommandTFlush<CR>
 
+" Fuzzy Finder plugin
+    nmap <silent> ,ta :FufTag<CR>
+
 " Lusty Explorer plugin
     nmap ,be :LustyBufferExplorer<CR>
     nmap ,bg :LustyBufferGrep<CR>
+
+" MiniBuf Explorer plugin
+    let g:miniBufExplMapCTabSwitchBufs = 1
  
 " NERD Tree plugin
-    let NERDTreeQuitOnOpen=1
     let NERDTreeWinPos="right"
 
     nmap <silent> <F9> :NERDTreeToggle<CR>
 
 " Tag list plugin
 	let Tlist_WinWidth=23
-	let Tlist_Auto_Open=1
 
 	nnoremap <silent> <F8> :TlistToggle<CR>
 
@@ -198,7 +204,7 @@
     nmap <C-k> lbi:<Esc>E
 
     " RSense plugin
-    let g:rsenseHome = "/opt/rsense"
+    let g:rsenseHome = "/home/junxuan/.vim/bundle/rsense/rsense"
     let g:rsenseUseOmniFunc = 1
 
     " RFactor plugin
