@@ -1,4 +1,4 @@
-" Pathogen startup
+"Pathogen startup
     filetype off
     call pathogen#runtime_append_all_bundles()
     call pathogen#helptags()
@@ -56,6 +56,7 @@
     set statusline+=\ %((%M)%)                   " Modified flag
     set statusline+=\ \ \ %p%%                   " File scroll percentage
     set statusline+=\ (%l,%c)                    " Current coordinates
+    set statusline+=\ \ %{SyntasticStatuslineFlag()}
     set statusline+=\ \ %{fugitive#statusline()} " Git status
     set statusline+=%=                           " Seperator
     set statusline+=\ \ %{Fileinfo()}                       " Filetype
@@ -101,8 +102,6 @@
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-
-
     " Super Tab plugin
     let g:SuperTabDefaultCompletionType = 'context'
     let g:SuperTabCrMapping=0
@@ -116,7 +115,7 @@
 " Mapping settings
     " Toggles
     nmap <silent> ,cd :cd %:h<CR>
-    nmap <silent> ,md :!mkdir -p %:p:h<CR>
+   nmap <silent> ,md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
     nmap  ,e :e <C-R>=expand("%:p:h") . "/"<CR>
@@ -242,6 +241,9 @@
     let g:user_zen_expandabbr_key = "<C-e>"
 
 " Utility plugins
+    " NERD Commenter plugin
+    let g:NERDCreateDefaultMappings=0
+
     " Surround plugin
     let g:surround_45 = "<% \r %>"
     let g:surround_61 = "<%= \r %>"
@@ -260,7 +262,11 @@
     nmap ,tw :PosttoTwitter<CR>
 
     " Align plugin
-	vmap ,a :Align 
+    vmap ,a :Align 
+
+    " Syntastic plugin
+    let g:syntastic_enable_signs=1
+    let g:syntastic_auto_loc_list=1
     
 " Autocommands
 if has("autocmd")
@@ -279,6 +285,8 @@ if has("autocmd")
     autocmd FileType make       set noet
     autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2
     autocmd FileType css        set ai et ts=2 sw=2 tw=2
+
+    autocmd FileType javascript set syntax=jquery
 end
 
 " Windows shortcuts
