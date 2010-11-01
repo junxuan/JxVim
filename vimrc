@@ -49,18 +49,18 @@
     set incsearch
 
 " Status bar
-    set statusline=%<                            " Set truncate location
-    set statusline+=--:--                        " For coolness
-    set statusline+=\ \|%n\|
-    set statusline+=\ %t                         " Current filename
-    set statusline+=\ %((%M)%)                   " Modified flag
-    set statusline+=\ \ \ %p%%                   " File scroll percentage
-    set statusline+=\ (%l,%c)                    " Current coordinates
+    set statusline=%<                                " Set truncate location
+    set statusline+=--:--                            " For coolness
+    set statusline+=\ \|%n\|                         " Buffer number
+    set statusline+=\ %t                             " Current filename
+    set statusline+=\ %((%M)%)                       " Modified flag
+    set statusline+=\ \ \ %p%%                       " File scroll percentage
+    set statusline+=\ (%l,%c)                        " Current coordinates
     set statusline+=\ \ %{SyntasticStatuslineFlag()}
-    set statusline+=\ \ %{fugitive#statusline()} " Git status
-    set statusline+=%=                           " Seperator
-    set statusline+=\ \ %{Fileinfo()}                       " Filetype
-    set statusline+=%r\ \                        " Readonly flag
+    set statusline+=\ \ %{fugitive#statusline()}     " Git status
+    set statusline+=%=                               " Seperator
+    set statusline+=\ \ %{Fileinfo()}                " Filetype
+    set statusline+=%r\ \                            " Readonly flag
 
     function! Fileinfo()
         let ft = &filetype 
@@ -275,6 +275,7 @@ if has("autocmd")
 
     " Omni Completion
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType javascript set tags=~/.vim/tags/jquery
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
