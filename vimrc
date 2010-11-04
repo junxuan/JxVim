@@ -56,7 +56,7 @@
     set statusline+=\ %((%M)%)                       " Modified flag
     set statusline+=\ \ \ %p%%                       " File scroll percentage
     set statusline+=\ (%l,%c)                        " Current coordinates
-    set statusline+=\ \ %{SyntasticStatuslineFlag()}
+    set statusline+=\ \ %{SyntasticStatuslineFlag()} " Syntastic flags
     set statusline+=\ \ %{fugitive#statusline()}     " Git status
     set statusline+=%=                               " Seperator
     set statusline+=\ \ %{Fileinfo()}                " Filetype
@@ -103,7 +103,8 @@
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
     " Super Tab plugin
-    let g:SuperTabDefaultCompletionType = 'context'
+    let g:SuperTabLongestEnhanced=1
+    let g:SuperTabDefaultCompletionType='context'
     let g:SuperTabCrMapping=0
 
 " Bubble movement
@@ -170,15 +171,18 @@
     nmap ,bg :LustyBufferGrep<CR>
 
 " MiniBuf Explorer plugin
-    let g:miniBufExplMapCTabSwitchBufs = 1
+    let g:miniBufExplMapCTabSwitchBufs=1
  
 " NERD Tree plugin
     let NERDTreeWinPos="right"
+    let NERDTreeChDirMode=2
+    let NERDTreeStatusline="NERD Tree"
 
     nmap <silent> <F9> :NERDTreeToggle<CR>
 
 " Tag list plugin
-	let Tlist_WinWidth=23
+    let Tlist_WinWidth=23
+    let Tlist_Exit_OnlyWindow=1 
 
 	nnoremap <silent> <F8> :TlistToggle<CR>
 
@@ -197,8 +201,8 @@
     nmap <C-k> lbi:<Esc>E
 
     " RSense plugin
-    let g:rsenseHome = "/home/junxuan/.vim/bundle/rsense/rsense"
-    let g:rsenseUseOmniFunc = 1
+    let g:rsenseHome="/home/junxuan/.vim/bundle/rsense/rsense"
+    let g:rsenseUseOmniFunc=1
 
     " RFactor plugin
     nnoremap <leader>rap :call AddParameter()<CR>
@@ -209,7 +213,6 @@
 
 " C++ plugins
     " OmniCpp plugin
-    set tags+=~/.vim/bundle/omnicpp/tags/cpp
     let OmniCpp_NamespaceSearch=1 
     let OmniCpp_ShowPrototypeInAbbr=1
 
@@ -227,26 +230,26 @@
     nmap <silent> <Leader>oJ :FSSplitBelow<cr>
     
     " Protodef plugin
-    let g:protodefprotogetter = "~/.vim/bundle/vim-protodef/pullproto.pl"
+    let g:protodefprotogetter="~/.vim/bundle/vim-protodef/pullproto.pl"
 
     " Single Compile plugin
     nmap <C-F9> :SCCompileRun<CR>
 
     " Delimit Mate plugin
-    let delimitMate_expand_cr = 1
-    let delimitMate_expand_space = 1
+    let delimitMate_expand_cr=1
+    let delimitMate_expand_space=1
 
 " HTML plugins
     " Zen Coding plugin
-    let g:user_zen_expandabbr_key = "<C-e>"
+    let g:user_zen_expandabbr_key="<C-e>"
 
 " Utility plugins
     " NERD Commenter plugin
     let g:NERDCreateDefaultMappings=0
 
     " Surround plugin
-    let g:surround_45 = "<% \r %>"
-    let g:surround_61 = "<%= \r %>"
+    let g:surround_45="<% \r %>"
+    let g:surround_61="<%= \r %>"
 
     " Twitvim plugin
     let twitvim_browser_cmd='google-chrome'
@@ -270,23 +273,23 @@
     
 " Autocommands
 if has("autocmd")
-    " Change to current file directory
-    autocmd BufEnter * lcd %:p:h
-
     " Omni Completion
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType javascript set tags=~/.vim/tags/jquery
+    "autocmd FileType javascript set tags+=~/Downloads/tags
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
-    autocmd FileType php        set tags=~/.vim/tags/wordpress
+    autocmd FileType php        set tags+=~/.vim/tags/wordpress
     autocmd FileType java       set omnifunc=javacomplete#Complete
+    autocmd FileType cpp        set tags+=~/.vim/bundle/omnicpp/tags/cpp
 
     " Indentation
-    autocmd FileType make       set noet
-    autocmd FileType ruby,eruby set ai et ts=2 sw=2 tw=2
-    autocmd FileType css        set ai et ts=2 sw=2 tw=2
+    autocmd FileType make       setlocal noet
+    autocmd FileType ruby,eruby setlocal ai et ts=2 sw=2 tw=2
+    autocmd FileType css        setlocal ai et ts=2 sw=2 tw=2
+    autocmd FileType javascript setlocal ai et ts=2 sw=2 tw=2
 
+    " Syntax
     autocmd FileType javascript set syntax=jquery
 end
 
