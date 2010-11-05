@@ -94,7 +94,8 @@
     
 " Colors and fonts
     color ir_black
-    set guifont=Espresso\ Mono\ Bold\ 10
+    "set guifont=Espresso\ Mono\ Bold\ 10
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 10
 
 " Omnicomplete settings
     " Menu settings
