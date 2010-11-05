@@ -65,12 +65,12 @@
     function! Fileinfo()
         let ft = &filetype 
         let indent = &shiftwidth
-		let type = "null"
-		if (&expandtab == 0)
-			let type = "hard"
-		else
-			let type = "soft"
-		end
+        let type = "null"
+        if (&expandtab == 0)
+            let type = "hard"
+        else
+            let type = "soft"
+        end
         let finfo = "[".ft." | ".indent." | ".type."]"
 
         if (ft == "")
@@ -185,7 +185,7 @@
     let Tlist_WinWidth=23
     let Tlist_Exit_OnlyWindow=1 
 
-	nnoremap <silent> <F8> :TlistToggle<CR>
+    nnoremap <silent> <F8> :TlistToggle<CR>
 
 " Ruby plugins
     " Rails plugin
