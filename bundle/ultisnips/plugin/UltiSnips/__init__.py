@@ -1012,7 +1012,7 @@ class SnippetManager(object):
     def _load_snippets_for(self, ft):
         self._snippets[ft] = _SnippetDictionary()
         for p in vim.eval("&runtimepath").split(',')[::-1]:
-            pattern = p + os.path.sep + "UltiSnips" + os.path.sep + \
+            pattern = p + os.path.sep + "snippets" + os.path.sep + \
                     "*%s.snippets" % ft
 
             for fn in glob.glob(pattern):

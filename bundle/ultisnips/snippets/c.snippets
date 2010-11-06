@@ -26,17 +26,23 @@ $0
 endsnippet
 
 snippet main "main() (main)"
-int main (int argc, char const *argv[])
-{
-	${0:/* code */ }
+int main() {
+    $0
+
+    return 1;
+}
+endsnippet
+
+snippet mainc "main(argc, argv) (main)"
+int main (int argc, char const *argv[]) {
+	$0
 	return 0;
 }
 endsnippet
 
 snippet for "for int loop (fori)"
-for(size_t ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
-{
-	${0:/* code */}
+for (${1:int} ${2:i} = 0; $2 < ${3:count}; ${4:++$2}) {
+	$0
 }
 endsnippet
 
@@ -49,8 +55,8 @@ snippet once "Include header once only guard"
 if not snip.c:
 	import random, string
 	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
-	rand = ''.join(random.sample(string.ascii_letters+string.digits, 8))
-	snip.rv = ('%s_%s' % (name,rand)).upper()
+	rand = ''
+	snip.rv = name
 else:
     snip.rv = snip.c`}
 #define $1
@@ -62,13 +68,19 @@ ${0}
 endsnippet
 
 snippet td "Typedef"
-typedef ${1:int} ${2:MyCustomType};
+typedef ${1:int} ${2:MyCustomType};$0
 endsnippet
 
 snippet do "do...while loop (do)"
 do {
-	${0:/* code */}
+	${0:/* code */ }
 } while(${1:/* condition */});
+endsnippet
+
+snippet while "while loop"
+while (${1:/* condition */}) {
+    $0
+}
 endsnippet
 
 snippet fprintf "fprintf …"

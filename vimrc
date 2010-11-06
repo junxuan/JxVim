@@ -252,13 +252,10 @@
     let g:surround_45="<% \r %>"
     let g:surround_61="<%= \r %>"
 
-    " XPTemplate plugin
-    let g:xptemplate_vars="SParg="
-    let g:SuperTabMappingForward='<Plug>supertabKey'
-    let g:xptemplate_fallback='<Plug>supertabKey'
-    let g:xptemplate_key='<Tab>'
-    let g:xptemplate_pum_tab_nav=1
-
+    " UltiSnips
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
     " Twitvim plugin
     let twitvim_browser_cmd='google-chrome'
