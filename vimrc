@@ -267,6 +267,7 @@
     let twitvim_old_retweet=1
 
     nmap ,tf :FriendsTwitter<CR>
+    nmap ,tr :RefreshTwitter<CR>
     nmap ,tm :MentionsTwitter<CR>
     nmap ,td :DMTwitter<CR>
     nmap ,ts :DMSentTwitter<CR>
