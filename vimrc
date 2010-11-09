@@ -93,7 +93,8 @@
     set cursorline
     
 " Colors and fonts
-    color ir_black
+    "color ir_black
+    color xoria256
     "set guifont=Espresso\ Mono\ Bold\ 10
     set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 10
 
