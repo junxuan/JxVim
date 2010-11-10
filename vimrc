@@ -41,7 +41,6 @@
     set expandtab
 
 " Fold settings             
-    set foldmethod=syntax
     set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
     set foldlevel=1
     set foldnestmax=2
@@ -113,7 +112,8 @@
     " Super Tab plugin
     let g:SuperTabLongestEnhanced=1
     let g:SuperTabDefaultCompletionType='context'
-    let g:SuperTabMidWordCompletion = 1
+    let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
+    "let g:SuperTabMidWordCompletion= 1
     let g:SuperTabCrMapping=0
 
     " Tags
@@ -292,13 +292,14 @@
 " Autocommands
 if has("autocmd")
     " Omni Completion
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType cpp        set tags+=~/.vim/bundle/omnicpp/tags/cpp
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType java       set omnifunc=javacomplete#Complete
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
     autocmd FileType php        set tags+=~/.vim/tags/wordpress
-    autocmd FileType java       set omnifunc=javacomplete#Complete
-    autocmd FileType cpp        set tags+=~/.vim/bundle/omnicpp/tags/cpp
+    autocmd FileType python     set omnifunc=pythoncomplete#Complete
 
     " Indentation
     autocmd FileType make       setlocal noet
