@@ -11,12 +11,13 @@
     set backspace=indent,eol,start
     set hidden
     set timeoutlen=400
-    set history=100
+    set history=1000
     set virtualedit=all
     set wildmenu
     set wildmode=list:longest,list:full
     set wildignore+=*.o,*.obj,.git,*.rbc
     set nowrap
+    set shortmess=atI
 
     set autowrite
     set noswapfile
@@ -53,6 +54,7 @@
     set incsearch
 
 " Status bar
+    set statusline=                                  " Reset status line
     set statusline=%<                                " Set truncate location
     set statusline+=--:--                            " For coolness
     set statusline+=\ \|%n\|                         " Buffer number
@@ -97,7 +99,8 @@
     set cursorline
     
 " Colors and fonts
-    color ir_black
+    "color ir_black
+    color xoria256
     "set guifont=Espresso\ Mono\ Bold\ 10
     set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 10
 
@@ -110,7 +113,11 @@
     " Super Tab plugin
     let g:SuperTabLongestEnhanced=1
     let g:SuperTabDefaultCompletionType='context'
+    let g:SuperTabMidWordCompletion = 1
     let g:SuperTabCrMapping=0
+
+    " Tags
+    set tags=./tags,tags
 
 " Bubble movement
     nmap <C-up> [e
@@ -121,7 +128,7 @@
 " Mapping settings
     " Toggles
     nmap <silent> ,cd :cd %:h<CR>
-   nmap <silent> ,md :!mkdir -p %:p:h<CR>
+    nmap <silent> ,md :!mkdir -p %:p:h<CR>
     nmap <silent> ,n :set invhls<CR>:set hls?<CR>
     nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
     nmap  ,e :e <C-R>=expand("%:p:h") . "/"<CR>
@@ -149,7 +156,6 @@
     noremap <silent> ,mk <C-w>K
     noremap <silent> ,mh <C-w>H
     noremap <silent> ,mj <C-w>J
-
 
     "Session hotkeys
     nmap <leader>ssa :wa<CR> :mksession! ~/.vim_session<CR>
@@ -235,7 +241,8 @@
     nmap <silent> <Leader>oJ :FSSplitBelow<cr>
     
     " Protodef plugin
-    let g:protodefprotogetter="~/.vim/bundle/vim-protodef/pullproto.pl"
+    let g:protodefprotogetter="~/.vim/bundle/protodef/pullproto.pl"
+
 
     " Single Compile plugin
     nmap <C-F9> :SCCompileRun<CR>
@@ -286,7 +293,6 @@
 if has("autocmd")
     " Omni Completion
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    "autocmd FileType javascript set tags+=~/Downloads/tags
     autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType php        set omnifunc=phpcomplete#CompletePHP

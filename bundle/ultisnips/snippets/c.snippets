@@ -8,11 +8,11 @@ snippet def "#ifndef … #define … #endif"
 endsnippet
 
 snippet inc "#include local header (inc)"
-#include "${1:`!p snip.rv = snip.basename + '.h'`}"$0na
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"$0
 endsnippet
 
 snippet Inc "#include <> (Inc)"
-#include <${1:.h}>$0
+#include <${1:iostream}>$0
 endsnippet
 
 snippet uns "using namespace"
