@@ -17,7 +17,6 @@
     set wildmode=list:longest,list:full
     set wildignore+=*.o,*.obj,.git,*.rbc
     set nowrap
-    set shortmess=atI
 
     set autowrite
     set noswapfile
@@ -108,6 +107,8 @@
     set completeopt=longest,menuone
     inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
     inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+    map ,gt :silent !ctags -R<CR>
 
     " Super Tab plugin
     let g:SuperTabLongestEnhanced=1
@@ -227,7 +228,7 @@
     let OmniCpp_NamespaceSearch=1 
     let OmniCpp_ShowPrototypeInAbbr=1
 
-    map ,gt :silent !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+    map ,gct :silent !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
     " FSwitch plugin
     nmap <silent> <Leader>of :FSHere<cr>
