@@ -15,7 +15,7 @@
     set virtualedit=all
     set wildmenu
     set wildmode=list:longest,list:full
-    set wildignore+=*.o,*.obj,.git,*.rbc
+    set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc
     set nowrap
 
     set autowrite
@@ -75,7 +75,7 @@
         else
             let type = "soft"
         end
-        let finfo = "[".ft." | ".indent." | ".type."]"
+        let finfo = ft." | ".indent." | ".type
 
         if (ft == "")
             return ""
@@ -138,6 +138,8 @@
     nmap <silent> ,ev :e $MYVIMRC<CR>
     nnoremap ; :
     imap jj <ESC>
+    map <space> /
+    map <C-space> ?
 
     " Window movements
     noremap <silent> ,nw :wincmd n<CR>
